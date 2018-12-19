@@ -1,5 +1,10 @@
 import React from 'react';
+import MenuPage from './MenuPage';
 
-const App = () => <div />;
+const App = () => (
+  <div>
+    <MenuPage />
+  </div>
+);
 
 export default App;
