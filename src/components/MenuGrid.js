@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuCard from './MenuCard';
 
-const MenuGrid = ({ items }) => (
+const MenuGrid = ({ items, onDelete, onShowMoreInfo }) => (
   <div>
     <ul className="menu-list">
       {items.map(({ id, name, description, image, price, ingredients }) => (
@@ -12,6 +12,8 @@ const MenuGrid = ({ items }) => (
             imgUrl={image}
             price={price}
             ingredients={ingredients}
+            onShowMoreInfo={() => onShowMoreInfo(id)}
+            onDelete={() => onDelete(id)}
           />
         </li>
       ))}

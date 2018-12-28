@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MenuCard = ({ name, imgUrl, price }) => (
+const MenuCard = ({ name, imgUrl, price, onShowMoreInfo, onDelete }) => (
   <div className="menu-card">
     <img src={imgUrl} alt={name} width={320} height={240} />
     <div className="menu-card_content">
@@ -8,8 +8,11 @@ const MenuCard = ({ name, imgUrl, price }) => (
       <p>Price: {price}$</p>
     </div>
     <div className="menu-card_actions">
-      <button className="btn" type="button">
-        Add to cart
+      <button className="btn" type="button" onClick={onShowMoreInfo}>
+        More info
+      </button>
+      <button className="btn" type="button" onClick={onDelete}>
+        Dalete
       </button>
     </div>
   </div>
