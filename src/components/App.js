@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 // Components
 import AppHeader from './AppHeader';
 import MenuPage from './MenuPage';
+// import OrderHistory from './OrderHistory';
 import OrderHistory from './OrderHistory';
 import Comments from './Comments';
 import Modal from './Modal';
-import orderList from '../order-history.json';
+// import orderList from '../order-history.json';
 
 export default class App extends Component {
   state = { isModalOpen: false };
-
-  componentDidMount() {}
 
   openModal = () => this.setState({ isModalOpen: true });
 
@@ -18,6 +17,7 @@ export default class App extends Component {
 
   render() {
     const { isModalOpen } = this.state;
+
     return (
       <div>
         <AppHeader />
@@ -38,7 +38,7 @@ export default class App extends Component {
             </button>
           </Modal>
         )}
-        <OrderHistory orderList={orderList} />
+        <OrderHistory />
         <MenuPage />
         <Comments />
       </div>
