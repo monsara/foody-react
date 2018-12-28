@@ -6,6 +6,7 @@ import MenuPage from './MenuPage';
 import OrderHistory from './OrderHistory';
 import Comments from './Comments';
 import Modal from './Modal';
+import Tabs from './Tabs';
 // import orderList from '../order-history.json';
 
 export default class App extends Component {
@@ -21,6 +22,7 @@ export default class App extends Component {
     return (
       <div>
         <AppHeader />
+        <Tabs />
         <button type="button" onClick={this.openModal}>
           Open Modal
         </button>
