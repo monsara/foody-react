@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  list-style: none;
+}
+
+.item {
+  flex-direction: column;
+  width: 100%;
+  height: 27em;
+  max-width: 26em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.4em;
+  border: 1px solid transparent;
+  position: relative;
+  text-align: left;
+}

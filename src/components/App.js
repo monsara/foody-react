@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 // Components
-import AppHeader from './AppHeader';
-import MenuPage from './MenuPage';
-// import OrderHistory from './OrderHistory';
-import OrderHistory from './OrderHistory';
-import Comments from './Comments';
-import Modal from './Modal';
-import Tabs from './Tabs';
+import AppHeader from './Header/AppHeader/AppHeader';
+import MenuPage from './Menu/MenuPage/MenuPage';
+import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
+import Comments from './Comments/Comments/Comments';
+import Modal from './Modal/Modal';
+import Tab from './Tabs/Tab/Tab';
 // import orderList from '../order-history.json';
+// styles
+import styles from './App.module.css';
 
 export default class App extends Component {
   state = { isModalOpen: false };
@@ -22,8 +23,12 @@ export default class App extends Component {
     return (
       <div>
         <AppHeader />
-        <Tabs />
-        <button type="button" onClick={this.openModal}>
+        <Tab />
+        <button
+          className={styles.btn_openModal}
+          type="button"
+          onClick={this.openModal}
+        >
           Open Modal
         </button>
         {isModalOpen && (

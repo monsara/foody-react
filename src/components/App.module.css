@@ -1,0 +1,17 @@
+.btn_openModal {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 30px;
+  border-radius: 30px;
+  color: #fff;
+  font-size: 15px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: #d4af7a;
+}
+
+.btn_openModal:hover {
+  background: #f59e25;
+}
