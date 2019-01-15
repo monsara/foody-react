@@ -17,7 +17,7 @@ const App = () => (
       <Route exact path={routes.MENU} component={MenuPage} />
       <Route exact path={routes.ADD_MENU_ITEM} component={AddMenuPage} />
       <Route path={routes.MENU_ITEM} component={MenuItemPage} />
-      <Redirect to="/" />
+      <Redirect to="/admin" />
     </Switch>
   </>
 );
