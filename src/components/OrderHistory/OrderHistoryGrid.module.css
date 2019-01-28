@@ -1,0 +1,18 @@
+.table {
+  color: #2c465a;
+  border-radius: 3px;
+}
+.head {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.thead {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: 700;
+}
+.th {
+  border: 1px solid #2c465a;
+  padding: 10px;
+}

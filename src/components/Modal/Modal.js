@@ -1,8 +1,9 @@
 import React, { Component, createRef } from 'react';
-// styles
 import styles from './Modal.module.css';
 
 export default class Modal extends Component {
+  state = {};
+
   backdropRef = createRef();
 
   componentDidMount() {
@@ -13,30 +14,34 @@ export default class Modal extends Component {
     window.removeEventListener('keydown', this.handleKeyPress);
   }
 
-  handleKeyPress = e => {
+  handleKeyPress = ({ code }) => {
+    if (code !== 'Escape') return;
     const { onClose } = this.props;
 
-    if (e.code !== 'Escape') return;
     onClose();
   };
 
-  handleBackdropClick = e => {
+  handleBackdropClick = ({ target }) => {
+    if (target !== this.backdropRef.current) return;
     const { onClose } = this.props;
 
-    if (e.target !== this.backdropRef.current) return;
     onClose();
   };
 
   render() {
-    const { children } = this.props;
-
+    const { onClose, children } = this.props;
     return (
       <div
-        className={styles.container}
+        className={styles.backdrop}
         ref={this.backdropRef}
         onClick={this.handleBackdropClick}
       >
-        <div className={styles.modalWindow}>{children}</div>
+        <div className={styles.modal}>
+          {children}
+          <button type="button" onClick={onClose}>
+            Close
+          </button>
+        </div>
       </div>
     );
   }

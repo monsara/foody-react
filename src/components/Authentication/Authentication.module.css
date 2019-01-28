@@ -1,0 +1,16 @@
+.button {
+  text-decoration: none;
+  color: #2c465a;
+  border-radius: 3px;
+  text-transform: uppercase;
+  padding: 13px 0;
+  font-weight: 700;
+  cursor: pointer;
+  width: 200px;
+  border: 0;
+}
+.active {
+  composes: button;
+  background-color: #fea100;
+  color: #fff;
+}

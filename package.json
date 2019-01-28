@@ -4,10 +4,19 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "query-string": "^6.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^6.0.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
-    "uuid": "^3.3.2"
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.3.0",
+    "slugify": "^1.3.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -16,7 +25,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
     "format": "eslint src/**/*.js --fix",
-    "server": "json-server --watch server/db.json --port 3004"
+    "server": "json-server --watch server/db.json --port 3001"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,9 +43,14 @@
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
-    "husky": "^1.2.1",
-    "json-server": "^0.14.1",
+    "husky": "^1.2.0",
+    "json-server": "^0.14.0",
     "lint-staged": "^8.1.0",
-    "prettier": "^1.15.3"
-  }
+    "prettier": "^1.15.2"
+  },
+  "main": "index.js",
+  "repository": "https://github.com/monsara/foody-react.git",
+  "author": "viktor.hirenko@gmail.com",
+  "license": "MIT",
+  "description": "React"
 }
