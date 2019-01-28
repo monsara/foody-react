@@ -1,0 +1,13 @@
+.home {
+  background: url(../components/AppHeader/assets/first-bg.jpg) no-repeat center
+    top;
+  height: 800px;
+}
+.head {
+  font-size: 56px;
+  color: #fff;
+  font-weight: 700;
+}
+.span {
+  color: #fea100;
+}

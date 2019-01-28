@@ -1,54 +1,66 @@
-import React, { Component } from 'react';
-// Components
-import AppHeader from './Header/AppHeader/AppHeader';
-import MenuPage from './Menu/MenuPage/MenuPage';
-import OrderHistory from './OrderHistory/OrderHistory/OrderHistory';
-import Comments from './Comments/Comments/Comments';
-import Modal from './Modal/Modal';
-import Tab from './Tabs/Tab/Tab';
-// import orderList from '../order-history.json';
-// styles
-import styles from './App.module.css';
+import React, { lazy, Suspense } from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
-export default class App extends Component {
-  state = { isModalOpen: false };
+import AppHeader from './AppHeader/AppHeader';
+import HomePage from '../pages/HomePage';
+import AboutPage from '../pages/AboutPage';
+import ContactPage from '../pages/ContactPage';
+import Spiner from './Spiner/Spiner';
 
-  openModal = () => this.setState({ isModalOpen: true });
+import routes from '../configs/routes';
 
-  closeModal = () => this.setState({ isModalOpen: false });
+const AsyncAuthenticationPage = lazy(() =>
+  import('../pages/AuthenticationPage' /* webpackChunkName: "auth-page" */),
+);
 
-  render() {
-    const { isModalOpen } = this.state;
+const AsyncMenuPage = lazy(() =>
+  import('../pages/MenuPage' /* webpackChunkName: "menu-page" */),
+);
 
-    return (
-      <div>
-        <AppHeader />
-        <Tab />
-        <button
-          className={styles.btn_openModal}
-          type="button"
-          onClick={this.openModal}
-        >
-          Open Modal
-        </button>
-        {isModalOpen && (
-          <Modal onClose={this.closeModal}>
-            <h1>Modal Content</h1>
-            <p>
-              Reprehenderit laborum aute culpa ipsum elit minim id eu tempor ea
-              veniam anim amet. Dolore qui ut ut quis nisi amet consectetur sit.
-              Et minim fugiat mollit occaecat laborum laborum. Consectetur in
-              ullamco aliqua minim esse nisi mollit elit eiusmod ipsum esse.
-            </p>
-            <button type="button" onClick={this.closeModal}>
-              Close Modal
-            </button>
-          </Modal>
-        )}
-        <OrderHistory />
-        <MenuPage />
-        <Comments />
-      </div>
-    );
-  }
-}
+const AsyncMenuItemPage = lazy(() =>
+  import('../pages/MenuItemPage' /* webpackChunkName: "menu-item-page" */),
+);
+
+const AsyncAddMenuPage = lazy(() =>
+  import('../pages/AddMenuPage' /* webpackChunkName: "add-menu-page" */),
+);
+
+const AsyncOrderHistoryPage = lazy(() =>
+  import('../pages/OrderHistoryPage' /* webpackChunkName: "history-page" */),
+);
+
+const AsyncAccountPage = lazy(() =>
+  import('../pages/AccountPage' /* webpackChunkName: "account-page" */),
+);
+
+const AsyncMealPlannerPage = lazy(() =>
+  import('../pages/MealPlannerPage' /* webpackChunkName: "planner-page" */),
+);
+
+const AsyncDeliveryPage = lazy(() =>
+  import('../pages/DeliveryPage' /* webpackChunkName: "delivery-page" */),
+);
+
+const App = () => (
+  <>
+    <AppHeader />
+
+    <Suspense fallback={Spiner}>
+      <Switch>
+        <Route exact path={routes.MAIN} component={HomePage} />
+        <Route exact path={routes.ABOUT} component={AboutPage} />
+        <Route exact path={routes.CONTACT} component={ContactPage} />
+        <Route exact path={routes.AUTH} component={AsyncAuthenticationPage} />
+        <Route exact path={routes.MENU} component={AsyncMenuPage} />
+        <Route exact path={routes.ADD_MENU_ITEM} component={AsyncAddMenuPage} />
+        <Route exact path={routes.MENU_ITEM} component={AsyncMenuItemPage} />
+        <Route exact path={routes.HISTORY} component={AsyncOrderHistoryPage} />
+        <Route exact path={routes.ACCOUNT} component={AsyncAccountPage} />
+        <Route exact path={routes.PLANNER} component={AsyncMealPlannerPage} />
+        <Route exact path={routes.DELIVERY} component={AsyncDeliveryPage} />
+        <Redirect to="/" />
+      </Switch>
+    </Suspense>
+  </>
+);
+export default App;
